@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pro Air Quality Checker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    </head>
+    <body>
+    <h1>🌍 Pro Air Quality Checker</h1>
+
+    <div class="controls">
+        <input type="text" id="citySearch" placeholder="Search City..." />
+        <ul id="suggestions"></ul>
+        <label>
+        Alert if AQI ≥
+        <input type="number" id="aqiThreshold" min="1" max="5" value="4" />
+        </label>
+        <button id="exportPDF">Export PDF</button>
+        <button id="exportCSV">Download CSV</button>
+        <button id="toggleDark">🌓 Toggle Dark Mode</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="result">
+        <h2 id="statusTitle">Air Quality</h2>
+        <p>AQI Level: <span id="aqi"></span></p>
+        <div id="pollutants"></div>
+        <canvas id="chart" width="400" height="150"></canvas>
+    </div>
+
+    <h3>Historical Records</h3>
+    <table id="historyTable">
+        <thead>
+        <tr><th>Date</th><th>Location</th><th>AQI</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="index.js"></script>
+    </body>
+    </html>
